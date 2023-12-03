@@ -30,7 +30,7 @@ const Home = () => {
     longitude: 0,
     latitudeDelta: 0,
     longitudeDelta: 0,
-  }); 
+  });
   useFocusEffect(
     React.useCallback(() => {
       getPosition().then((result) => {
@@ -42,7 +42,7 @@ const Home = () => {
             longitudeDelta: result.longitudeDelta,
           });
           setMapSection(true);
-        }, 100);
+        }, 300);
       });
 
       const backAction = () => {
@@ -90,12 +90,10 @@ const Home = () => {
           </View>
         )}
       </View>
-      {mapSection && (
-        <Sheet
-          latDriver={initialRegion.latitude}
-          longDriver={initialRegion.longitude}
-        />
-      )}
+      <Sheet
+        latDriver={initialRegion.latitude}
+        longDriver={initialRegion.longitude}
+      />
       <Tab />
     </SafeAreaView>
   );
